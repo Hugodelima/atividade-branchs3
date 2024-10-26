@@ -102,7 +102,7 @@ function App() {
     const updatedAccounts = accounts.map(account => {
       account.balance = parseFloat(account.balance)
       if (account.id === id) {
-        account.balance += amount;
+        account.balance += parseFloat(amount);
       }
       return account;
     });
