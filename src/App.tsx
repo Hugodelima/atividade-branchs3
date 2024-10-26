@@ -92,6 +92,17 @@ function App() {
     setNumberBalance('')
     setEditMode({ enabled: false, account: null })
   }
+  function withdraw(id: number, amount: number) {
+    const updatedAccounts = accounts.map(account => {
+      if(!numberModal) {
+        alert("Por favor, preencha todos os campos")
+        return
+      }
+      
+    setAccounts(updatedAccounts);
+    localStorage.setItem('accounts', JSON.stringify(updatedAccounts));
+  }
+
 
 
   return (
