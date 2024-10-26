@@ -93,44 +93,6 @@ function App() {
     setEditMode({ enabled: false, account: null })
   }
 
-  function deposit(id: number, amount: string) {
-    if(!numberModal) {
-      alert("Por favor, preencha todos os campos")
-      return
-    }
-    
-    const updatedAccounts = accounts.map(account => {
-      account.balance = parseFloat(account.balance)
-      if (account.id === id) {
-        account.balance += parseFloat(amount);
-      }
-      return account;
-    });
-    setAccounts(updatedAccounts);
-    setNumberModal('')
-    setOpen(false)
-    localStorage.setItem('accounts', JSON.stringify(updatedAccounts));
-    alert(`Foi depositado com sucesso no valor de: ${amount}`)
-  }
-
-  function withdraw(id: number, amount: number) {
-    const updatedAccounts = accounts.map(account => {
-      if(!numberModal) {
-        alert("Por favor, preencha todos os campos")
-        return
-      }
-      if (account.id === id) {
-        if (account.balance >= amount) {
-          account.balance -= parseFloat(amount);
-        } else {
-          alert("Saldo insuficiente!");
-        }
-      }
-      return account;
-    });
-    setAccounts(updatedAccounts);
-    localStorage.setItem('accounts', JSON.stringify(updatedAccounts));
-  }
 
   return (
     <div>
