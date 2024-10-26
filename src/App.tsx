@@ -5,7 +5,6 @@ import * as React from 'react';
 import './App.css';
 
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
 interface Account {
@@ -100,8 +99,10 @@ function App() {
     }
     
     const updatedAccounts = accounts.map(account => {
+      {/* @ts-ignore */}
       account.balance = parseFloat(account.balance)
       if (account.id === id) {
+        {/* @ts-ignore */}
         account.balance += amount;
       }
       return account;
