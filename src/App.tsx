@@ -102,6 +102,7 @@ function App() {
     setAccounts(updatedAccounts);
     localStorage.setItem('accounts', JSON.stringify(updatedAccounts));
   }
+  /*funco de sacar */
 
 
 
