@@ -103,7 +103,7 @@ function App() {
       account.balance = parseFloat(account.balance)
       if (account.id === id) {
         {/* @ts-ignore */}
-        account.balance += amount;
+        account.balance += parseFloat(amount);
       }
       return account;
     });
