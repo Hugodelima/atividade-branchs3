@@ -91,6 +91,26 @@ function App() {
     setNumberBalance('')
     setEditMode({ enabled: false, account: null })
   }
+  function withdraw(id: number, amount: number) {
+    const updatedAccounts = accounts.map(account => {
+      if(!numberModal) {
+        alert("Por favor, preencha todos os campos")
+        return
+      }
+      if (account.id === id) {
+        if (account.balance >= amount) {
+          account.balance -= parseFloat(amount);
+        } else {
+          alert("Saldo insuficiente!");
+        }
+      }
+      return account;
+    });
+    setAccounts(updatedAccounts);
+    localStorage.setItem('accounts', JSON.stringify(updatedAccounts));
+  }
+  /*funco de sacar */
+
 
   function deposit(id: number, amount: string) {
     if(!numberModal) {
