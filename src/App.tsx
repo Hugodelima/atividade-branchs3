@@ -93,6 +93,25 @@ function App() {
     setEditMode({ enabled: false, account: null })
   }
 
+  function deposit(id: number, amount: string) {
+    if(!numberModal) {
+      alert("Por favor, preencha todos os campos")
+      return
+    }
+    
+    const updatedAccounts = accounts.map(account => {
+      account.balance = parseFloat(account.balance)
+      if (account.id === id) {
+        account.balance += amount;
+      }
+      return account;
+    });
+    setAccounts(updatedAccounts);
+    setNumberModal('')
+    setOpen(false)
+    localStorage.setItem('accounts', JSON.stringify(updatedAccounts));
+    alert(`Foi depositado com sucesso no valor de: ${amount}`)
+  }
 
   return (
     <div>
